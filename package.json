@@ -1,0 +1,10 @@
+{
+  "name": "castle-website",
+  "version": "1.0.0",
+  "description": "Daily castle image website",
+  "main": "index.html",
+  "scripts": {
+    "start": "node generate_images.js"
+  },
+  "dependencies": {}
+}
