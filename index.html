@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 城堡图鉴 | AI Castle Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f39c12, #e74c3c, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            letter-spacing: 4px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            font-weight: 300;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .castle-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .castle-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(243, 156, 18, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4),
+                        0 0 40px rgba(243, 156, 18, 0.1);
+        }
+
+        .castle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f39c12, #e74c3c, #9b59b6);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .castle-card:hover::before {
+            opacity: 1;
+        }
+
+        .castle-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .castle-info {
+            padding: 28px;
+        }
+
+        .castle-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .castle-desc {
+            font-size: 0.95rem;
+            color: #888;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .castle-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(243, 156, 18, 0.15);
+            color: #f39c12;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #666;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .gallery { grid-template-columns: 1fr; }
+            .container { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏰 AI 城堡图鉴</h1>
+            <p class="subtitle">由 MiniMax AI 精心生成的梦幻城堡</p>
+        </header>
+
+        <div class="gallery">
+            <div class="castle-card">
+                <img src="castle1.jpg" alt="月光城堡" class="castle-image">
+                <div class="castle-info">
+                    <h2 class="castle-name">🌙 月光城堡</h2>
+                    <p class="castle-desc">矗立在云端之巅的宏伟城堡，在月光下闪耀着银色的光芒。高耸的尖塔直入星空，守护着古老的秘密。</p>
+                    <div class="castle-tags">
+                        <span class="tag">奇幻</span>
+                        <span class="tag">夜景</span>
+                        <span class="tag">梦幻</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="castle-card">
+                <img src="castle2.jpg" alt="皇家城堡" class="castle-image">
+                <div class="castle-info">
+                    <h2 class="castle-name">👑 皇家城堡</h2>
+                    <p class="castle-desc">巴洛克风格的皇家宫殿，金色的穹顶在阳光下熠熠生辉。精致的雕塑和喷泉诉说着帝国的辉煌。</p>
+                    <div class="castle-tags">
+                        <span class="tag">皇室</span>
+                        <span class="tag">奢华</span>
+                        <span class="tag">经典</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="castle-card">
+                <img src="castle3.jpg" alt="森林城堡" class="castle-image">
+                <div class="castle-info">
+                    <h2 class="castle-name">🌲 森林城堡</h2>
+                    <p class="castle-desc">被神秘森林环抱的中世纪城堡，苔藓覆盖的石墙诉说着千年的故事。萤火虫在护城河上翩翩起舞。</p>
+                    <div class="castle-tags">
+                        <span class="tag">中世纪</span>
+                        <span class="tag">森林</span>
+                        <span class="tag">神秘</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p class="footer-text">由 MiniMax M2.7 驱动的 AI 城堡生成器</p>
+            <div class="ai-badge">
+                <span>⚡</span> Powered by MiniMax AI
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
