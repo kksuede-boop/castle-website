@@ -4,13 +4,29 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # 每天早上8点自动生成并部署新图片 (Asia/Shanghai = UTC+8, 所以00:00 UTC = 08:00 CST)
+    - cron: '0 0 * * *'
 
 jobs:
-  deploy:
+  generate-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate castle images
+        run: node generate_images.js
+        env:
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1

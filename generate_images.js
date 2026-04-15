@@ -2,7 +2,7 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const apiKey = 'sk-cp-BkuOk_XvC4k93uCV0wqaf1THWP6EeEYAV7Rjq45wW6BSsORlFaStghm4xvGIVMzs3RB3XfCCE6VjLHPEVzAu_zzgYqSEo7soC_klKBbpHbXPsKFKpCaU6Y0';
+const apiKey = process.env.MINIMAX_API_KEY;
 
 const castles = [
   {
